@@ -1,1 +1,1 @@
-# Todo 📝 & Travel ✈️ App
+# Todo & Travel App 📝✈️
