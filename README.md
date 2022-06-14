@@ -1,5 +1,4 @@
 # ⚛️ React Native Study
-<br/>
 
 ## ✍🏻 Study 내용
 
