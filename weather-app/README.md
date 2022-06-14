@@ -1,1 +1,4 @@
 # 🌤️ Weather App
+
+
+## Component & API
