@@ -1,5 +1,15 @@
-export const theme = {
-  backgroudColor: "black",
-  grey: "#3A3D40",
-  toDoBg: "#5c5c60",
+export const lightTheme = {
+  bgColor: "#fafbfc",
+  textColor: "#222222",
+  toDoBg: "white",
+  disable: "#c9c9ca",
+  name: "light",
+};
+
+export const darkTheme = {
+  bgColor: "black",
+  textColor: "white",
+  toDoBg: "#1A1C20",
+  disable: "#3A3D40",
+  name: "dark",
 };
