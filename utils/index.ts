@@ -3,7 +3,6 @@ import { Item } from "../context/common";
 
 export const storeData = async (value: any, key: string) => {
   try {
-    console.log(value);
     await AsyncStorage.setItem(key, JSON.stringify(value));
   } catch (e) {}
 };

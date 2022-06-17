@@ -36,7 +36,6 @@ export default function App() {
     });
     getData("@theme").then((value) => {
       if (value) {
-        console.log("theme", value, typeof value);
         setIsLightTheme(value);
       } else {
         setIsLightTheme(Appearance.getColorScheme() === "light" ? true : false);
