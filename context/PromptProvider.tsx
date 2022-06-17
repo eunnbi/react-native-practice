@@ -19,8 +19,6 @@ export const promptDispatchContext = createContext({
   onChangeText: (value: string) => {},
 });
 
-const reducer = (state: PromptValue, action: any) => {};
-
 const PromptProvider = ({ children }: { children: React.ReactNode }) => {
   const [promptState, setPromptState] = useState({
     visible: false,
