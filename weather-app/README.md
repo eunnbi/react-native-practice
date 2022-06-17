@@ -1,5 +1,7 @@
 # 🌤️ Weather App
+> Find your location 🧭 and Show the weather for the week 🌈
 
+<br/>
 
 ## Component & API 정리
 
