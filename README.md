@@ -6,4 +6,4 @@
 
 <br/>
 
->[Weather App README 보러가기](https://github.com/eunnbi/react-native-practice/blob/main/weather-app/README.md)
+>[🌤️ Weather App README 보러가기](https://github.com/eunnbi/react-native-practice/blob/main/weather-app/README.md)
