@@ -10,7 +10,11 @@
 - [🚨 Alert](https://reactnative.dev/docs/alert)
   - `api`를 제공할 뿐만 아니라 `dialog UI`도 설정 가능하다.
   - `prompt method`는 `iOS`에서만 가능하다.
-- [💽 AsyncStorage - expo](https://react-native-async-storage.github.io/async-storage/docs/usage)
+- [💽 AsyncStorage - expo](https://react-native-async-storage.github.io/async-storage/)
+- [❗ TouchableOpacity](https://reactnative.dev/docs/touchableopacity)
+- [💫 TouchableHighlight](https://reactnative.dev/docs/touchablehighlight)
+- [🙅‍♀️ TouchableWithoutFeedback](https://reactnative.dev/docs/touchablewithoutfeedback)
+- [👇 Pressable](https://reactnative.dev/docs/pressable)
 
 
 <br/>
