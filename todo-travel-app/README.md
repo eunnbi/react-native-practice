@@ -4,6 +4,14 @@
 <br/>
 
 ## Component & API 정리
+- [✍️ TextInput](https://reactnative.dev/docs/textinput)
+  - `input` 태그와 비슷하지만, `mobile`에 최적화된 `props`가 있다!
+  - `keyboardType`, `returnKeyType`, `autoCapitalize` 등등
+- [🚨 Alert](https://reactnative.dev/docs/alert)
+  - `api`를 제공할 뿐만 아니라 `dialog UI`도 설정 가능하다.
+  - `prompt method`는 `iOS`에서만 가능하다.
+- [💽 AsyncStorage - expo](https://react-native-async-storage.github.io/async-storage/docs/usage)
+
 
 <br/>
 
