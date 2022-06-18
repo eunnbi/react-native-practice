@@ -1,5 +1,5 @@
 # 👀 Todo & Travel App
-> Work Hard 📝 Travel Hard ✈️
+> Work Hard 📝 Travel Hard ✈️ <br/>
 
 <br/>
 
@@ -12,8 +12,8 @@
   - `api`를 제공할 뿐만 아니라 `dialog UI`도 설정 가능하다.
   - `prompt method`는 `iOS`에서만 가능하다.
   - `prompt method`를 `android`에서도 사용하고 싶어 [react-native-dialog](https://www.npmjs.com/package/react-native-dialog)라는 `third-party package`를 이용했다.
-
-
+- [🎨 Appearance](https://reactnative.dev/docs/appearance)
+  - OS 테마값 (light or dark)를 읽어오기 위해 사용했다.
 
 
 <br/>
@@ -38,3 +38,7 @@
 <img alt="TypeScript" src ="https://img.shields.io/badge/TypeScript-3178C6.svg?&style=flat-square&logo=TypeScript&logoColor=white"/> <img alt="React Native" src ="https://img.shields.io/badge/React Native-61DAFB.svg?&style=flat-square&logo=React&logoColor=white"/>
 <img alt="Expo CLI" src ="https://img.shields.io/badge/Expo CLI-000020.svg?&style=flat-square&logo=Expo&logoColor=white"/>
 <img alt="Styled Components" src ="https://img.shields.io/badge/Styled Components-DB7093.svg?&style=flat-square&logo=styled-components&logoColor=white"/>
+
+<br/>
+
+> [👉 expo에 공개된 앱 보러가기](https://expo.dev/@eunnbi/whthapp)
