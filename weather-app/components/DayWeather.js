@@ -15,8 +15,8 @@ export default function DayWeather({ dayWeather }) {
         temp={dayWeather.temp.day.toFixed(1)}
         mainDesc={ICONS[dayWeather.weather[0].main]}
       />
-      <Text style={styles.desc}>{dayWeather.weather[0].main}</Text>
-      <Text style={styles.tinyText}>{dayWeather.weather[0].description}</Text>
+      <Text style={styles.mainDesc}>{dayWeather.weather[0].main}</Text>
+      <Text style={styles.desc}>{dayWeather.weather[0].description}</Text>
     </View>
   );
 }
@@ -32,13 +32,16 @@ const styles = StyleSheet.create({
     marginBottom: 70,
     alignSelf: "center",
   },
-  desc: {
-    fontSize: 45,
+  mainDesc: {
+    fontSize: 48,
     alignSelf: "flex-end",
     paddingTop: 20,
+    color: "#fff",
   },
-  tinyText: {
+  desc: {
     fontSize: 20,
     alignSelf: "flex-end",
+    fontStyle: "italic",
+    color: "#fff",
   },
 });
