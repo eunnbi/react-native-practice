@@ -5,7 +5,7 @@ export default function NotPermission({ permit }) {
     <View style={styles.container}>
       <Text style={styles.emoji}>😭</Text>
       <Text style={styles.text}>We don't know your location </Text>
-      <Text style={styles.text}>
+      <Text style={styles.smallText}>
         You must permit to see the weather for the week
       </Text>
       <Button title="Permit to know your Location🧭" onPress={permit} />
@@ -26,6 +26,11 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 30,
     textAlign: "center",
-    marginBottom: 20,
+    marginBottom: 30,
+  },
+  smallText: {
+    fontSize: 25,
+    textAlign: "center",
+    marginBottom: 30,
   },
 });
