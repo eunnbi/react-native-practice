@@ -42,7 +42,7 @@ export default function ProgressBar({ header }: { header: string }) {
         <Bar percent={header === "work" ? todosPercent : travelsPercent} />
       </BarWrapper>
       <Percent>
-        {header === "work" ? `${todosPercent}% ✨` : `${travelsPercent}% ✈️`}
+        {header === "work" ? `${todosPercent}% 👍` : `${travelsPercent}% ✈️`}
       </Percent>
     </View>
   );
