@@ -13,8 +13,27 @@
   - `prompt method`는 `iOS`에서만 가능하다.
   - `prompt method`를 `android`에서도 사용하고 싶어 [react-native-dialog](https://www.npmjs.com/package/react-native-dialog)라는 `third-party package`를 이용했다.
 - [🎨 Appearance](https://reactnative.dev/docs/appearance)
-  - OS 테마값 (light or dark)를 읽어오기 위해 사용했다.
+  - OS 테마값 (`light` or `dark`)를 읽어오기 위해 사용했다. 
+  - 그 전에 `app.json`에서 설정 변경이 필요하다.
+ ```
+ // app.json
+ {
+  "expo": {
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "userInterfaceStyle": "automatic"
+    },
+    "android": {
+      "userInterfaceStyle": "automatic"
+    }
+  }
+}
+```
 
+>`Expo`를 이용해서 RN 앱을 개발하면 `app.json`을 통해 JS 코드로 할 수 없는 영역들을 설정할 수 있다. <br/>
+> ex) `name`, `slug`, `splash`, `icon`, `locales`, `isTabletOnly`, `usesAppleSignIn` 등등 <br/>
+> - [👉 사용가능한 app.json 설정들 더 알아보기](https://docs.expo.dev/versions/latest/config/app/)
+> - [👉 Configuration with app.json / app.config.js](https://docs.expo.dev/workflow/configuration/)
 
 <br/>
 
