@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet } from "react-native";
 import COLORS from "../../styles/color";
+import FONTS from "../../styles/fonts";
 
 export default function Header({ title }: { title: string }) {
   return (
@@ -21,9 +22,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 28,
+    fontFamily: FONTS.REGULAR,
   },
   link: {
     fontSize: 13,
     color: COLORS.active,
+    fontFamily: FONTS.BOLD,
   },
 });
