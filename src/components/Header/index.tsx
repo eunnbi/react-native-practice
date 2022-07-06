@@ -13,7 +13,7 @@ export default function Header({ title }: { title: string }) {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 70,
+    marginTop: 60,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
