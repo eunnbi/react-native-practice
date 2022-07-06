@@ -16,7 +16,8 @@
 ## Component & API
 
 - [FlatList](https://reactnative.dev/docs/flatlist)
-- [Linking](https://reactnative.dev/docs/linking)
+- [Linking API](https://reactnative.dev/docs/linking)
+- [Share API](https://reactnative.dev/docs/share)
 - [Shadow Props](https://reactnative.dev/docs/shadow-props)
 
 <br/>
