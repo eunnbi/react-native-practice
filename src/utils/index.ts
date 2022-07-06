@@ -1,13 +1,103 @@
-const TMDB_IMAGE_BASE_URL = "https://image.tmdb.org/t/p";
+import { IMovieVideo } from "../types";
+
 const YOUTUBE_BASE_URL = "https://www.youtube.com/watch";
 
-export const getPoster = (path: string) =>
-  `${TMDB_IMAGE_BASE_URL}/original${path}`;
+export const getVideo = (videos: IMovieVideo[]): string => {
+  let video = "";
+  for (let i = 0; i < videos.length; i++) {
+    if (videos[i].site.toLowerCase() === "youtube") {
+      video = `${YOUTUBE_BASE_URL}?v=${videos[i].key}`;
+      if (videos[i].type.toLowerCase() === "trailer") {
+        return video;
+      }
+    }
+  }
+  return video;
+};
 
-export const getVideo = (key: number) => `${YOUTUBE_BASE_URL}?v=${key}`;
+export const getGenre = (id: number) => GENRES.find((genre) => genre.id === id);
 
 export const getLanguage = (language_iso: string) =>
   LANGUAGES.find((language) => language.iso_639_1 === language_iso);
+
+const GENRES = [
+  {
+    id: 28,
+    name: "Action",
+  },
+  {
+    id: 12,
+    name: "Adventure",
+  },
+  {
+    id: 16,
+    name: "Animation",
+  },
+  {
+    id: 35,
+    name: "Comedy",
+  },
+  {
+    id: 80,
+    name: "Crime",
+  },
+  {
+    id: 99,
+    name: "Documentary",
+  },
+  {
+    id: 18,
+    name: "Drama",
+  },
+  {
+    id: 10751,
+    name: "Family",
+  },
+  {
+    id: 14,
+    name: "Fantasy",
+  },
+  {
+    id: 36,
+    name: "History",
+  },
+  {
+    id: 27,
+    name: "Horror",
+  },
+  {
+    id: 10402,
+    name: "Music",
+  },
+  {
+    id: 9648,
+    name: "Mystery",
+  },
+  {
+    id: 10749,
+    name: "Romance",
+  },
+  {
+    id: 878,
+    name: "Science Fiction",
+  },
+  {
+    id: 10770,
+    name: "TV Movie",
+  },
+  {
+    id: 53,
+    name: "Thriller",
+  },
+  {
+    id: 10752,
+    name: "War",
+  },
+  {
+    id: 37,
+    name: "Western",
+  },
+];
 
 const LANGUAGES = [
   {
