@@ -6,10 +6,10 @@
 
 ## Third-party Library
 
-- [React Navigation](https://reactnavigation.org/)
+- [react-navigation](https://reactnavigation.org/)
 - [expo-font](https://docs.expo.dev/versions/latest/sdk/font/)
 - [expo-app-loading](https://docs.expo.dev/versions/latest/sdk/app-loading/)
-
+- [react-native-dotenv](https://www.npmjs.com/package/react-native-dotenv) / [@types/react-native-dotenv](https://www.npmjs.com/package/@types/react-native-dotenv)
 
 <br/>
 
