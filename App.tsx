@@ -4,7 +4,6 @@ import "react-native-gesture-handler";
 import HomeScreen from "./src/screens/HomeScreen";
 import MovieScreen from "./src/screens/MovieScreen";
 import { RootStackParamList } from "./src/types";
-import theme from "./src/styles/theme";
 import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
 import { QueryClient, QueryClientProvider } from "react-query";
@@ -29,7 +28,7 @@ export default function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <NavigationContainer theme={theme}>
+      <NavigationContainer>
         <RootStack.Navigator initialRouteName="Home">
           <RootStack.Screen
             name="Home"
