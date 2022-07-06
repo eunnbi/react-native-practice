@@ -12,4 +12,14 @@
 
 ## Component & API
 
-- [Flat List](https://reactnative.dev/docs/flatlist)
+- [FlatList](https://reactnative.dev/docs/flatlist)
+- [Shadow Props](https://reactnative.dev/docs/shadow-props)
+- [Linking](https://reactnative.dev/docs/linking)
+- [expo-font](https://docs.expo.dev/versions/latest/sdk/font/)
+- [expo-app-loading](https://docs.expo.dev/versions/latest/sdk/app-loading/)
+
+<br/>
+
+## Reference
+
+- [React Native/Typescript 환경에서 env 파일 사용하는 방법](https://joonfluence.tistory.com/630)
