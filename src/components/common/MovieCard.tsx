@@ -16,6 +16,7 @@ import COLORS from "../../styles/color";
 import FONTS from "../../styles/fonts";
 
 const IMDB = require("../../../assets/images/imdb.png");
+const DEFAULT = require("../../../assets/images/poster-default.png");
 
 interface MovieCardProps {
   movie: IMovie;
@@ -24,10 +25,6 @@ interface MovieCardProps {
 }
 
 export default function MovieCard({ movie, size, navigation }: MovieCardProps) {
-  const [like, setLike] = useState(false);
-  const onLike = () => {
-    setLike(!like);
-  };
   const langauge = useMemo(
     () => getLanguage(movie.original_language)?.english_name,
     []
@@ -53,6 +50,7 @@ export default function MovieCard({ movie, size, navigation }: MovieCardProps) {
         }}
       >
         <Image
+          defaultSource={DEFAULT}
           style={styles.image}
           source={{ uri: `${TMDB_IMAGE_BASE_URL}/${movie.poster_path}` }}
           resizeMode="cover"
@@ -70,14 +68,6 @@ export default function MovieCard({ movie, size, navigation }: MovieCardProps) {
             {movie.vote_average}
           </Text>
         </View>
-        <TouchableNativeFeedback onPress={onLike}>
-          <Ionicons
-            name={like ? "heart" : "heart-outline"}
-            size={25 * size}
-            color={like ? COLORS.heart : "#fff"}
-            style={styles.likeButton}
-          />
-        </TouchableNativeFeedback>
       </View>
       <View style={styles.movieInfoContainer}>
         <Text
