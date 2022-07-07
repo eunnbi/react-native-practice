@@ -1,13 +1,6 @@
-import {
-  Text,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  TouchableNativeFeedback,
-} from "react-native";
+import { Text, View, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { IMovie, RootStackParamList } from "../../types";
 import { getGenre, getLanguage } from "../../utils";
