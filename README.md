@@ -14,11 +14,25 @@
 
 ## Component & API
 
-- [Image](https://reactnative.dev/docs/image)
-- [FlatList](https://reactnative.dev/docs/flatlist)
-- [Linking](https://reactnative.dev/docs/linking)
-- [Share](https://reactnative.dev/docs/share)
+- 🖼️ [Image](https://reactnative.dev/docs/image) 
+  - `source` 
+  - `resizeMode`
+  -  `defaultSoure` => provide good user experience 👍
+- 💖 [FlatList](https://reactnative.dev/docs/flatlist)
+  - `data`
+  - `renderItem`
+  - `keyExtractor`
+  - `horizontal`
+  - `ItemSeparatorComponent`
+  - `ListFooterComponent`
+  - `ListHeaderComponent`
+- 🔗 [Linking](https://reactnative.dev/docs/linking)
+  - open URL link
+- 👥 [Share](https://reactnative.dev/docs/share)
+  - open a dialog to share content
 - [Shadow Props](https://reactnative.dev/docs/shadow-props)
+  - a replacement of `box-shadow` property
+ 
 
 <br/>
 
