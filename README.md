@@ -19,7 +19,7 @@
 - 🖼️ [Image](https://reactnative.dev/docs/image) 
   - `source` 
   - `resizeMode`
-  -  `defaultSoure` => provide good user experience 👍
+  -  `defaultSource`👍
 - 💖 [FlatList](https://reactnative.dev/docs/flatlist)
   - `data`
   - `renderItem`
