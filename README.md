@@ -8,6 +8,7 @@
 
 - [React Navigation](https://reactnavigation.org/)
 - [expo-font](https://docs.expo.dev/versions/latest/sdk/font/)
+- [react-native-dotenv](https://www.npmjs.com/package/react-native-dotenv) / [@types/react-native-dotenv](https://www.npmjs.com/package/@types/react-native-dotenv)
 
 <br/>
 
@@ -15,8 +16,8 @@
 
 - [Image](https://reactnative.dev/docs/image)
 - [FlatList](https://reactnative.dev/docs/flatlist)
-- [Shadow Props](https://reactnative.dev/docs/shadow-props)
 - [Linking](https://reactnative.dev/docs/linking)
+- [Shadow Props](https://reactnative.dev/docs/shadow-props)
 
 <br/>
 
