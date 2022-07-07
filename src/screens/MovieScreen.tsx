@@ -7,6 +7,8 @@ import {
   TouchableOpacity,
   Linking,
   Dimensions,
+  FlatList,
+  Share,
 } from "react-native";
 import { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
@@ -14,25 +16,29 @@ import { StackScreenProps } from "@react-navigation/stack";
 import { RootStackParamList } from "../types";
 import COLORS from "../styles/color";
 import ItemSeperator from "../components/common/ItemSeperator";
-import { useMovieInfo } from "../components/Movie/useMovieInfo";
+import { useMovieInfo } from "./hooks/useMovieInfo";
 import { Feather, Ionicons } from "@expo/vector-icons";
 import FONTS from "../styles/fonts";
 import { getVideo } from "../utils";
+import CreditCard from "../components/CreditCard";
+import MovieCard from "../components/common/MovieCard";
 
 type MovieScreenProps = StackScreenProps<RootStackParamList, "Movie">;
-const APPEND_TO_RESPONSE = {
-  VIDEOS: "videos",
-  CREDITS: "credits",
-  RECOMMENDATIONS: "recommendations",
-  SIMILAR: "similar",
-};
 const { width: WIDTH, height: HEIGHT } = Dimensions.get("screen");
 
 export default function MovieScreen({ navigation, route }: MovieScreenProps) {
-  const { id, title, language, image } = route.params;
-  const { status, data } = useMovieInfo(id, APPEND_TO_RESPONSE.VIDEOS);
-  console.log(id);
-  const [video, setVideo] = useState("");
+  const {
+    id,
+    title,
+    language,
+    backdropImage,
+    posterImage,
+    overview,
+    voteCount,
+  } = route.params;
+  const { status, data } = useMovieInfo(id);
+  const [video, setVideo] = useState("video");
+  const [isCastSelected, setIsCastSelected] = useState(true);
 
   useEffect(() => {
     const videos = data?.videos.results;
@@ -41,13 +47,14 @@ export default function MovieScreen({ navigation, route }: MovieScreenProps) {
       setVideo(video);
     }
   }, [status]);
+  console.log(id);
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <StatusBar translucent style="light" />
       <View style={styles.moviePosterContainer}>
         <Image
-          source={{ uri: image }}
+          source={{ uri: backdropImage }}
           resizeMode="cover"
           style={styles.moviePoster}
         />
@@ -65,15 +72,24 @@ export default function MovieScreen({ navigation, route }: MovieScreenProps) {
           <Feather name="chevron-left" size={30} color={"#fff"} />
         </TouchableOpacity>
         <TouchableOpacity>
-          <Text style={styles.headerText}>Share</Text>
+          <Text
+            style={styles.headerText}
+            onPress={() =>
+              Share.share({
+                message: `${title}\n\n${posterImage}`,
+              })
+            }
+          >
+            Share
+          </Text>
         </TouchableOpacity>
       </View>
       <ItemSeperator height={setHeight(37)} />
       <View style={styles.movieTitleContainer}>
-        <Text style={styles.movieTitle}>{data?.original_title}</Text>
+        <Text style={styles.movieTitle}>{title}</Text>
         <View style={styles.likeContainer}>
           <Ionicons name="heart" size={20} color={COLORS.heart} />
-          <Text style={styles.likeText}>{data?.vote_count}</Text>
+          <Text style={styles.likeText}>{voteCount}</Text>
         </View>
       </View>
       <View style={styles.rowContainer}>
@@ -81,7 +97,7 @@ export default function MovieScreen({ navigation, route }: MovieScreenProps) {
         <Text style={styles.dividerText}>|</Text>
         <Text style={styles.lightGrayText}>{data?.runtime} Min</Text>
       </View>
-      <View style={styles.rowContainer}>
+      <View style={styles.genreContainer}>
         {data?.genres.map((genre, index) => (
           <Text style={styles.genreText} key={index}>
             {genre.name}
@@ -89,8 +105,73 @@ export default function MovieScreen({ navigation, route }: MovieScreenProps) {
         ))}
       </View>
       <View style={styles.overviewContainer}>
-        <Text style={styles.overviewTitle}>Overview</Text>
-        <Text style={styles.overviewText}>{data?.overview}</Text>
+        <Text style={styles.title}>Overview</Text>
+        <Text style={styles.overviewText}>{overview}</Text>
+      </View>
+      <View style={styles.creditsContainer}>
+        <Text style={styles.title}>Credits</Text>
+        <View style={styles.creditsMenuContainer}>
+          <TouchableOpacity onPress={() => setIsCastSelected(true)}>
+            <Text
+              style={{
+                ...styles.creditsMenuText,
+                color: !isCastSelected ? COLORS.lightGray : "#000",
+              }}
+            >
+              Cast
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => setIsCastSelected(false)}>
+            <Text
+              style={{
+                ...styles.creditsMenuText,
+                color: isCastSelected ? COLORS.lightGray : "#000",
+              }}
+            >
+              Crew
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <FlatList
+          data={isCastSelected ? data?.credits.cast : data?.credits.crew}
+          keyExtractor={(item) => item.credit_id}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          ItemSeparatorComponent={() => <ItemSeperator width={20} />}
+          renderItem={({ item }) => (
+            <CreditCard
+              name={item.name}
+              image={item.profile_path}
+              role={isCastSelected ? item.character : item.job}
+            />
+          )}
+        />
+      </View>
+      <View style={styles.recommendationContainer}>
+        <Text style={styles.title}>Recommended Movies</Text>
+        <FlatList
+          data={data?.recommendations.results}
+          keyExtractor={(item) => item.id.toString()}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          ItemSeparatorComponent={() => <ItemSeperator width={20} />}
+          renderItem={({ item }) => (
+            <MovieCard movie={item} size={0.6} navigation={navigation} />
+          )}
+        />
+      </View>
+      <View style={styles.recommendationContainer}>
+        <Text style={styles.title}>Similar Movies</Text>
+        <FlatList
+          data={data?.similar.results}
+          keyExtractor={(item) => item.id.toString()}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          ItemSeparatorComponent={() => <ItemSeperator width={20} />}
+          renderItem={({ item }) => (
+            <MovieCard movie={item} size={0.6} navigation={navigation} />
+          )}
+        />
       </View>
     </ScrollView>
   );
@@ -104,6 +185,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#fff",
     minHeight: "100%",
+    paddingBottom: 50,
   },
   moviePosterContainer: {
     height: setHeight(35),
@@ -147,12 +229,13 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     justifyContent: "space-between",
     paddingHorizontal: 20,
+    paddingVertical: 3,
   },
   movieTitle: {
     color: "#000",
     fontFamily: FONTS.EXTRA_BOLD,
     fontSize: 20,
-    maxWidth: "60%",
+    maxWidth: "80%",
   },
   likeContainer: {
     flexDirection: "row",
@@ -169,7 +252,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     flexDirection: "row",
     alignItems: "center",
-    paddingVertical: 6,
   },
   lightGrayText: {
     color: COLORS.lightGray,
@@ -178,8 +260,15 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     color: COLORS.lightGray,
   },
+  genreContainer: {
+    paddingHorizontal: 20,
+    flexDirection: "row",
+    alignItems: "center",
+    marginVertical: 15,
+  },
   genreText: {
     borderColor: COLORS.lightGray,
+    color: COLORS.lightGray,
     borderWidth: 1,
     borderRadius: 5,
     marginRight: 10,
@@ -191,16 +280,32 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 15,
     backgroundColor: COLORS.secondLightGray,
-    marginVertical: 20,
+    marginVertical: 15,
   },
-  overviewTitle: {
+  title: {
     fontFamily: FONTS.BOLD,
     fontSize: 17,
-    marginVertical: 5,
+    marginBottom: 10,
   },
   overviewText: {
     color: COLORS.gray,
     fontFamily: FONTS.SEMI_BOLD,
-    marginVertical: 5,
+  },
+  creditsContainer: {
+    paddingHorizontal: 20,
+    marginVertical: 15,
+  },
+  creditsMenuContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 10,
+  },
+  creditsMenuText: {
+    marginRight: 10,
+    fontFamily: FONTS.SEMI_BOLD,
+  },
+  recommendationContainer: {
+    paddingHorizontal: 20,
+    marginVertical: 15,
   },
 });
