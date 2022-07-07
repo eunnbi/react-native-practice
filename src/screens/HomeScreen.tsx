@@ -2,7 +2,7 @@ import { StackScreenProps } from "@react-navigation/stack";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, ScrollView } from "react-native";
 import Header from "../components/Header";
-import MovieList from "../components/Movie/MovieList";
+import MovieList from "../components/MovieList";
 import { MOVIES_TYPE } from "../constants";
 import COLORS from "../styles/color";
 import { RootStackParamList } from "../types";
