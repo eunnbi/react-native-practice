@@ -8,7 +8,7 @@ import {
   Text,
   TouchableOpacity,
 } from "react-native";
-import MovieList from "../components/MovieList";
+import MovieList from "../components/HomeMovieList";
 import { MOVIES_TYPE } from "../constants";
 import COLORS from "../styles/color";
 import FONTS from "../styles/fonts";
