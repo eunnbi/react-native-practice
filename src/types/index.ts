@@ -4,7 +4,10 @@ export type RootStackParamList = {
     id: number;
     title: string;
     language: string | undefined;
-    image: string;
+    backdropImage: string;
+    posterImage: string;
+    overview: string;
+    voteCount: number;
   };
 };
 
@@ -21,12 +24,12 @@ export interface IMovie {
   original_title: string;
   overview: string;
   poster_path: string;
-  release_date: string;
   vote_average: number;
   popularity: number;
   vote_count: number;
   backdrop_path: string;
   runtime?: number;
+  homepage: string;
 }
 
 interface Genre {
@@ -34,8 +37,11 @@ interface Genre {
   name: string;
 }
 
-export interface IMovieWithVideo extends IMovie {
+export interface IMovieWithAdditional extends IMovie {
   videos: IMovieVideoList;
+  credits: IMovieCreditList;
+  recommendations: IMovieList;
+  similar: IMovieList;
 }
 
 interface IMovieVideoList {
@@ -46,4 +52,20 @@ export interface IMovieVideo {
   key: string;
   site: string;
   type: string;
+}
+
+interface IMovieCreditList {
+  cast: IMovieCredit[];
+  crew: IMovieCredit[];
+}
+
+interface IMovieCredit {
+  id: number;
+  name: string;
+  original_name: string;
+  profile_path: string;
+  cast_id: number;
+  character: string;
+  credit_id: string;
+  job: string;
 }
