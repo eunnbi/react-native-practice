@@ -6,25 +6,24 @@ import {
   Image,
   TouchableNativeFeedback,
 } from "react-native";
-import COLORS from "../../styles/color";
-import { Ionicons } from "@expo/vector-icons";
-import FONTS from "../../styles/fonts";
+import { StackNavigationProp } from "@react-navigation/stack";
 import { useMemo, useState } from "react";
-import { IMovie } from "../../types";
+import { Ionicons } from "@expo/vector-icons";
+import { IMovie, RootStackParamList } from "../../types";
 import { getGenre, getLanguage } from "../../utils";
-import { useNavigation } from "@react-navigation/native";
-import { HomeScreenProps } from "../../screens/HomeScreen";
+import { TMDB_IMAGE_BASE_URL } from "../../constants";
+import COLORS from "../../styles/color";
+import FONTS from "../../styles/fonts";
 
 const IMDB = require("../../../assets/images/imdb.png");
-const TMDB_IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
 
 interface MovieCardProps {
   movie: IMovie;
   size: number;
+  navigation: StackNavigationProp<RootStackParamList>;
 }
 
-export default function MovieCard({ movie, size }: MovieCardProps) {
-  const navigation = useNavigation<HomeScreenProps["navigation"]>();
+export default function MovieCard({ movie, size, navigation }: MovieCardProps) {
   const [like, setLike] = useState(false);
   const onLike = () => {
     setLike(!like);
@@ -38,9 +37,12 @@ export default function MovieCard({ movie, size }: MovieCardProps) {
       onPress={() =>
         navigation.navigate("Movie", {
           id: movie.id,
-          title: movie.title,
+          title: movie.original_title,
           language: langauge,
-          image: `${TMDB_IMAGE_BASE_URL}/${movie.backdrop_path}`,
+          backdropImage: `${TMDB_IMAGE_BASE_URL}/${movie.backdrop_path}`,
+          posterImage: `${TMDB_IMAGE_BASE_URL}/${movie.poster_path}`,
+          overview: movie.overview,
+          voteCount: movie.vote_count,
         })
       }
     >
@@ -64,7 +66,9 @@ export default function MovieCard({ movie, size }: MovieCardProps) {
               ...sizeStyle(50 * size, 20 * size),
             }}
           />
-          <Text style={styles.ratingText}>{movie.vote_average}</Text>
+          <Text style={{ ...styles.ratingText, fontSize: 16 * size }}>
+            {movie.vote_average}
+          </Text>
         </View>
         <TouchableNativeFeedback onPress={onLike}>
           <Ionicons
@@ -77,26 +81,51 @@ export default function MovieCard({ movie, size }: MovieCardProps) {
       </View>
       <View style={styles.movieInfoContainer}>
         <Text
-          style={{ ...styles.movieTitle, ...sizeStyle(230 * size) }}
+          style={{
+            ...styles.movieTitle,
+            ...sizeStyle(230 * size),
+            fontSize: size === 1 ? 15 : 20 * size,
+          }}
           numberOfLines={3}
         >
           {movie.title}
         </Text>
         <View style={styles.genreContainer}>
-          <Text style={styles.genreText}>
+          <Text
+            style={{
+              ...styles.genreText,
+              fontSize: size === 1 ? 13 : 16 * size,
+            }}
+          >
             {getGenre(movie.genre_ids[0])?.name}
           </Text>
           {movie.genre_ids[1] && (
-            <Text style={styles.genreText}>
+            <Text
+              style={{
+                ...styles.genreText,
+                fontSize: size === 1 ? 13 : 17 * size,
+              }}
+            >
               {getGenre(movie.genre_ids[1])?.name}
             </Text>
           )}
         </View>
         <View style={styles.infoBottomContainer}>
-          <Text style={styles.lang}>{langauge}</Text>
+          <Text
+            style={{ ...styles.lang, fontSize: size === 1 ? 13 : 17 * size }}
+          >
+            {langauge}
+          </Text>
           <View style={styles.likeContainer}>
             <Ionicons name="heart" size={17 * size} color={COLORS.heart} />
-            <Text style={styles.likeText}>{movie.vote_count}</Text>
+            <Text
+              style={{
+                ...styles.likeText,
+                fontSize: size === 1 ? 13 : 17 * size,
+              }}
+            >
+              {movie.vote_count}
+            </Text>
           </View>
         </View>
       </View>
@@ -169,11 +198,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginTop: 5,
+    marginTop: 8,
   },
   lang: {
     fontFamily: FONTS.REGULAR,
-    fontSize: 13,
     color: COLORS.lightGray,
   },
   genreText: {
@@ -183,7 +211,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginRight: 5,
     paddingHorizontal: 5,
-    fontSize: 13,
   },
   likeContainer: {
     flexDirection: "row",
@@ -192,6 +219,5 @@ const styles = StyleSheet.create({
   likeText: {
     marginLeft: 5,
     color: COLORS.lightGray,
-    fontSize: 13,
   },
 });
