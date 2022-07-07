@@ -4,6 +4,7 @@
 - [📌 The Rules of RN](https://velog.io/@eunnbi/React-Native-The-Rules-of-RN)
 - [📦 Packages (RN & Third-party)](https://velog.io/@eunnbi/React-Native-Packages)
 - [Expo CLI 🆚 React Native CLI](https://velog.io/@eunnbi/React-Native-Expo-CLI-vs-React-Native-CLI)
+- [🧭 React Navigation + Typescript](https://velog.io/@eunnbi/React-Native-React-Navigation-Typescript)
 
 <br/>
 
