@@ -7,6 +7,7 @@
 ## Third-party Library
 
 - 🧭 [React Navigation](https://reactnavigation.org/)
+  - [React Navigation + Typescript](https://velog.io/@eunnbi/React-Native-React-Navigation-Typescript)
 - 💌 [expo-font](https://docs.expo.dev/versions/latest/sdk/font/)
   - `useFonts` 
 - 🌍 [react-native-dotenv](https://www.npmjs.com/package/react-native-dotenv) / [@types/react-native-dotenv](https://www.npmjs.com/package/@types/react-native-dotenv)
