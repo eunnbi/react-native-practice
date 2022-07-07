@@ -1,8 +1,9 @@
-import { View, StyleSheet, ActivityIndicator } from "react-native";
-import { FlatList } from "react-native-gesture-handler";
+import { View, StyleSheet, ActivityIndicator, FlatList } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import ItemSeperator from "../common/ItemSeperator";
-import MovieCard from "./MovieCard";
+import MovieCard from "../common/MovieCard";
 import { useMovieList } from "./useMovieList";
+import { HomeScreenProps } from "../../screens/HomeScreen";
 
 interface MovieListProps {
   type: string;
@@ -10,6 +11,7 @@ interface MovieListProps {
 }
 
 export default function MovieList({ type, size }: MovieListProps) {
+  const navigation = useNavigation<HomeScreenProps["navigation"]>();
   const { status, data } = useMovieList(type);
   if (status === "loading") {
     <View>
@@ -27,7 +29,11 @@ export default function MovieList({ type, size }: MovieListProps) {
         ListHeaderComponent={() => <ItemSeperator width={30 * size} />}
         ListFooterComponent={() => <ItemSeperator width={30 * size} />}
         renderItem={({ item }) => (
-          <MovieCard movie={item} size={size ? size : 1} />
+          <MovieCard
+            movie={item}
+            size={size ? size : 1}
+            navigation={navigation}
+          />
         )}
       />
     </View>
