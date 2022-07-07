@@ -54,7 +54,7 @@ export interface IMovieVideo {
   type: string;
 }
 
-interface IMovieCreditList {
+export interface IMovieCreditList {
   cast: IMovieCredit[];
   crew: IMovieCredit[];
 }
