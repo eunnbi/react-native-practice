@@ -32,7 +32,7 @@
   - open URL link
 - 👥 [Share](https://reactnative.dev/docs/share)
   - open a dialog to share content
-- [Shadow Props](https://reactnative.dev/docs/shadow-props)
+- 🌒 [Shadow Props](https://reactnative.dev/docs/shadow-props)
   - a replacement of `box-shadow` property
   
  <br/>
