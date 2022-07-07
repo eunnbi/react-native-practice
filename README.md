@@ -17,6 +17,7 @@
 - [Image](https://reactnative.dev/docs/image)
 - [FlatList](https://reactnative.dev/docs/flatlist)
 - [Linking](https://reactnative.dev/docs/linking)
+- [Share](https://reactnative.dev/docs/share)
 - [Shadow Props](https://reactnative.dev/docs/shadow-props)
 
 <br/>
