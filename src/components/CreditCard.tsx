@@ -9,13 +9,14 @@ interface CastCardProps {
   role: string;
 }
 
-const NO_IMAGE = require("../../../assets/images/no-image.png");
+const NO_IMAGE = require("../../assets/images/no-image.png");
+const DEFAULT = require("../../assets/images/person-default.png");
 
 export default function CreditCard({ name, image, role }: CastCardProps) {
   return (
     <View style={styles.container}>
       <Image
-        defaultSource={NO_IMAGE}
+        defaultSource={DEFAULT}
         source={image ? { uri: `${TMDB_IMAGE_BASE_URL}/${image}` } : NO_IMAGE}
         resizeMode={image ? "cover" : "contain"}
         style={styles.image}
