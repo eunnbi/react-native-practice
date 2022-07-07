@@ -6,17 +6,19 @@
 
 ## Third-party Library
 
-- [React Navigation](https://reactnavigation.org/)
+- [react-navigation](https://reactnavigation.org/)
+- [expo-font](https://docs.expo.dev/versions/latest/sdk/font/)
+- [expo-app-loading](https://docs.expo.dev/versions/latest/sdk/app-loading/)
+- [react-native-dotenv](https://www.npmjs.com/package/react-native-dotenv) / [@types/react-native-dotenv](https://www.npmjs.com/package/@types/react-native-dotenv)
 
 <br/>
 
 ## Component & API
 
 - [FlatList](https://reactnative.dev/docs/flatlist)
+- [Linking API](https://reactnative.dev/docs/linking)
+- [Share API](https://reactnative.dev/docs/share)
 - [Shadow Props](https://reactnative.dev/docs/shadow-props)
-- [Linking](https://reactnative.dev/docs/linking)
-- [expo-font](https://docs.expo.dev/versions/latest/sdk/font/)
-- [expo-app-loading](https://docs.expo.dev/versions/latest/sdk/app-loading/)
 
 <br/>
 
