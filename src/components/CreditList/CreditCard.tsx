@@ -1,7 +1,7 @@
 import { View, StyleSheet, Text, Image } from "react-native";
-import { TMDB_IMAGE_BASE_URL } from "../constants";
-import COLORS from "../styles/color";
-import FONTS from "../styles/fonts";
+import { TMDB_IMAGE_BASE_URL } from "../../constants";
+import COLORS from "../../styles/color";
+import FONTS from "../../styles/fonts";
 
 interface CastCardProps {
   name: string;
@@ -9,8 +9,8 @@ interface CastCardProps {
   role: string;
 }
 
-const NO_IMAGE = require("../../assets/images/no-image.png");
-const DEFAULT = require("../../assets/images/person-default.png");
+const NO_IMAGE = require("../../../assets/images/no-image.png");
+const DEFAULT = require("../../../assets/images/person-default.png");
 
 export default function CreditCard({ name, image, role }: CastCardProps) {
   return (
