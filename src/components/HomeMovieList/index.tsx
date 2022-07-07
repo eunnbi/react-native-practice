@@ -10,7 +10,7 @@ interface MovieListProps {
   size: number;
 }
 
-export default function MovieList({ type, size }: MovieListProps) {
+export default function HomeMovieList({ type, size }: MovieListProps) {
   const navigation = useNavigation<HomeScreenProps["navigation"]>();
   const { status, data } = useMovieList(type);
   if (status === "loading") {
@@ -40,7 +40,7 @@ export default function MovieList({ type, size }: MovieListProps) {
   );
 }
 
-MovieList.defaultProps = {
+HomeMovieList.defaultProps = {
   size: 1,
 };
 
