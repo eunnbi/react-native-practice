@@ -22,5 +22,3 @@
 <br/>
 
 ## Reference
-
-- [React Native/Typescript 환경에서 env 파일 사용하는 방법](https://joonfluence.tistory.com/630)
