@@ -1,4 +1,4 @@
-# The Movie App 🎥
+# Movie App 🎥
 
 > 🔎 Find Movies and Share Them With Others 💖
 
